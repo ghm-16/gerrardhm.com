@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerrard: Leading Through Service</title>
+    <style>
+      /* ===== Reset & Base ===== */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --accent: #2b5ea7;
+        --accent-light: #e8f0fe;
+        --accent-dark: #1a3d6e;
+        --bg: #fafbfd;
+        --bg-white: #ffffff;
+        --text: #2d3436;
+        --text-light: #636e72;
+        --border: #e0e4e8;
+        --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        --radius: 12px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Georgia", "Times New Roman", serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.75;
+        font-size: 17px;
+      }
+
+      /* ===== Navigation ===== */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        z-index: 100;
+        padding: 0 2rem;
+      }
+
+      nav .nav-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+      }
+
+      nav .nav-name {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--accent-dark);
+        letter-spacing: 0.5px;
+      }
+
+      nav .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+      }
+
+      nav .nav-links a {
+        text-decoration: none;
+        color: var(--text-light);
+        font-size: 0.85rem;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        letter-spacing: 0.3px;
+        transition: color 0.2s;
+      }
+
+      nav .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text);
+      }
+
+      /* ===== Layout ===== */
+      section {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 5rem 2rem 3rem;
+      }
+
+      section:first-of-type {
+        padding-top: 8rem;
+      }
+
+      .section-label {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        line-height: 1.2;
+        color: var(--accent-dark);
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        color: var(--accent-dark);
+        margin-bottom: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        color: var(--accent-dark);
+        margin-bottom: 0.75rem;
+        margin-top: 2rem;
+      }
+
+      p {
+        margin-bottom: 1.25rem;
+      }
+
+      .tagline {
+        font-size: 1.15rem;
+        color: var(--text-light);
+        font-style: italic;
+        margin-bottom: 2rem;
+      }
+
+      /* ===== Home: Highlights ===== */
+      .highlights {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin-top: 2.5rem;
+      }
+
+      .highlight-card {
+        background: var(--bg-white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: var(--shadow);
+      }
+
+      .highlight-card .highlight-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      .highlight-card .highlight-stat {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent);
+        display: block;
+      }
+
+      .highlight-card .highlight-label {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        display: block;
+        margin-top: 0.25rem;
+      }
+
+      /* ===== Divider ===== */
+      .divider {
+        max-width: 800px;
+        margin: 0 auto;
+        border: none;
+        border-top: 1px solid var(--border);
+      }
+
+      /* ===== Pull Quote ===== */
+      .pull-quote {
+        background: var(--accent-light);
+        border-left: 4px solid var(--accent);
+        border-radius: 0 var(--radius) var(--radius) 0;
+        padding: 1.75rem 2rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: var(--text);
+        line-height: 1.8;
+      }
+
+      .pull-quote .quote-attr {
+        display: block;
+        margin-top: 1rem;
+        font-style: normal;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 0.85rem;
+        color: var(--accent-dark);
+        font-weight: 600;
+      }
+
+      /* ===== Number Callouts ===== */
+      .callout-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin: 2rem 0;
+      }
+
+      .callout {
+        text-align: center;
+        padding: 1.25rem;
+        background: var(--bg-white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .callout .callout-number {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--accent);
+        display: block;
+      }
+
+      .callout .callout-desc {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        display: block;
+        margin-top: 0.25rem;
+      }
+
+      /* ===== Timeline ===== */
+      .timeline {
+        position: relative;
+        padding-left: 2.5rem;
+        margin: 2rem 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--accent-light);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 1.5rem;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -2.5rem;
+        top: 6px;
+        width: 14px;
+        height: 14px;
+        background: var(--accent);
+        border: 3px solid var(--accent-light);
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .timeline-year {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .timeline-role {
+        font-size: 1rem;
+        color: var(--text);
+        margin-top: 0.2rem;
+      }
+
+      /* ===== Awards Strip ===== */
+      .awards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .award {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: var(--bg-white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1rem 1.25rem;
+        box-shadow: var(--shadow);
+      }
+
+      .award-icon {
+        font-size: 1.4rem;
+        flex-shrink: 0;
+      }
+
+      .award-text {
+        font-size: 0.9rem;
+        color: var(--text);
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
+
+      /* ===== Gallery ===== */
+      .gallery-category {
+        margin-bottom: 2.5rem;
+      }
+
+      .gallery-category h3 {
+        margin-top: 0;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .gallery-item {
+        background: var(--accent-light);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.2s;
+        padding: 0;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-3px);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+        display: block;
+      }
+
+      .gallery-placeholder {
+        padding: 1.5rem;
+      }
+
+      .gallery-placeholder-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.5;
+      }
+
+      .gallery-placeholder-text {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
+
+      /* ===== Reflections ===== */
+      .reflection-text {
+        font-size: 1.05rem;
+        line-height: 1.85;
+      }
+
+      /* ===== Footer ===== */
+      footer {
+        text-align: center;
+        padding: 3rem 2rem;
+        color: var(--text-light);
+        font-size: 0.8rem;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        border-top: 1px solid var(--border);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* ===== Responsive ===== */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+        h2 {
+          font-size: 1.4rem;
+        }
+
+        .highlights,
+        .callout-row {
+          grid-template-columns: 1fr;
+        }
+
+        .awards {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        nav .nav-links {
+          display: none;
+        }
+        nav .nav-links.open {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.98);
+          padding: 1rem 2rem;
+          border-bottom: 1px solid var(--border);
+          gap: 0.75rem;
+        }
+
+        .nav-toggle {
+          display: block;
+        }
+
+        section {
+          padding: 3.5rem 1.25rem 2rem;
+        }
+        section:first-of-type {
+          padding-top: 6rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-inner">
+        <span class="nav-name">Gerrard Hiren Michael</span>
+        <button
+          class="nav-toggle"
+          onclick="
+            document.querySelector('.nav-links').classList.toggle('open')
+          "
+          aria-label="Toggle navigation"
+        >
+          &#9776;
+        </button>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#service">Service</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#growth">Growth</a></li>
+          <li><a href="#hobbies">Hobbies</a></li>
+          <li><a href="#reflections">Reflections</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Home -->
+    <section id="home">
+      <p class="section-label">Personal Portfolio</p>
+      <h1>Gerrard: Leading Through Service</h1>
+      <p class="tagline">
+        A student leader, volunteer, and learner who believes in using his
+        strengths to support others.
+      </p>
+      <p>
+        Hello, I'm Gerrard. I enjoy serving my school and community through
+        leadership roles, volunteering, and everyday acts of responsibility.
+        Through these experiences, I have learned that leadership is not about
+        recognition, but about helping others, staying dependable, and making a
+        positive difference where I can.
+      </p>
+
+      <div class="highlights">
+        <div class="highlight-card">
+          <span class="highlight-icon" aria-hidden="true">&#127758;</span>
+          <span class="highlight-stat">1 of 126</span>
+          <span class="highlight-label"
+            >Selected for Combined Lasallian Schools Leadership Trip to
+            Manila</span
+          >
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-icon" aria-hidden="true">&#9997;</span>
+          <span class="highlight-stat">5 Roles</span>
+          <span class="highlight-label"
+            >Prefect, Maths Leader, IT Leader, Prayer Leader, Class
+            Monitor</span
+          >
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-icon" aria-hidden="true">&#129309;</span>
+          <span class="highlight-stat">2 Causes</span>
+          <span class="highlight-label"
+            >Krsna's Free Meals &amp; Kampong Glam Youth Network</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- About -->
+    <section id="about">
+      <p class="section-label">About</p>
+      <h2>About Me</h2>
+      <p>
+        I am a student from St. Joseph's Institution Junior who enjoys learning,
+        serving, and growing through new experiences. In school, I try to lead
+        by example and support others through roles such as Prefect, Maths
+        Leader, IT Leader, Prayer Leader, and buddy to younger students. Outside
+        school, I value service because it reminds me to be grateful,
+        compassionate, and aware of the needs of others.
+      </p>
+
+      <div class="pull-quote">
+        "What sets Gerrard apart is his ability to balance leadership with
+        humility. He is respectful, approachable, and attentive to the needs of
+        his peers, often stepping forward to guide and support others. His
+        positive attitude and perseverance enable him to overcome challenges
+        with maturity, making him a steady and reliable presence in the school
+        community."
+        <span class="quote-attr">Ms Cheryl Tang, Teacher at SJIJ</span>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Service -->
+    <section id="service">
+      <p class="section-label">Service</p>
+      <h2>Serving the Community</h2>
+
+      <div class="callout-row">
+        <div class="callout">
+          <span class="callout-number">3&times;</span>
+          <span class="callout-desc"
+            >mornings per week at Krsna's Free Meals</span
+          >
+        </div>
+        <div class="callout">
+          <span class="callout-number">6</span>
+          <span class="callout-desc"
+            >community events with Kampong Glam Youth Network</span
+          >
+        </div>
+        <div class="callout">
+          <span class="callout-number">Since 2025</span>
+          <span class="callout-desc">consistent holiday volunteering</span>
+        </div>
+      </div>
+
+      <h3>Krsna's Free Meals</h3>
+      <p>
+        Service is an important part of my life outside school. Since 2025, I
+        have volunteered with my mother at Krsna's Free Meals during the June
+        and December school holidays. Three mornings a week, I reach the soup
+        kitchen at 6.30 a.m. to help pack and serve breakfast to beneficiaries,
+        especially migrant workers, till about 9 a.m. The school holidays are
+        the one time I could sleep in, but this is something my mum and I do
+        together without fail, and it has become a part of how I spend my
+        breaks. This experience has taught me compassion, discipline, and the
+        importance of contributing consistently, even in small ways.
+      </p>
+      <p>
+        One morning, a worker thanked me in an Indian language I did not
+        understand, and it made me realise that service goes beyond language,
+        because a simple act of care can still make someone feel seen,
+        respected, and valued.
+      </p>
+
+      <h3>Kampong Glam Youth Network</h3>
+      <p>
+        Since 2026, I have also volunteered with the Kampong Glam Youth Network,
+        where I have supported community events such as Family Day, Clean &
+        Green urban tree-planting, and children's activities. Through these
+        experiences, I learned that leadership can also mean bringing people
+        together and contributing to a stronger community.
+      </p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Leadership -->
+    <section id="leadership">
+      <p class="section-label">Leadership</p>
+      <h2>Leadership in School</h2>
+
+      <h3>Combined Lasallian Schools Leadership Trip, Manila, October 2025</h3>
+      <p>
+        A particularly meaningful experience for me was being selected as 1 of
+        126 student leaders to take part in the Combined Lasallian Schools
+        Student Leadership Trip to Manila. This five-day, four-night journey
+        brought together student leaders and prefects from SJI Junior and four
+        other Lasallian primary schools in Singapore to build connections and
+        practise servant leadership.
+      </p>
+      <p>
+        During the trip, I had the chance to contribute in ways that helped me
+        grow in confidence and servant leadership. When we visited La Salle
+        Green Hills Primary School, I led a mini-group activity during a Maths
+        lesson and enjoyed guiding the younger students through the task. I
+        found the experience especially meaningful because I like helping others
+        learn, and it reminded me of my role as Maths Leader in school, where I
+        try to support my classmates patiently and clearly.
+      </p>
+      <p>
+        For the finale item, I also took the initiative to help lead the SJI
+        Junior team by practising our segment, encouraging my teammates, and
+        coordinating with student representatives from the other schools.
+        Through this, I learned that leadership is not just about stepping
+        forward, but also about bringing people together and helping a group
+        work well as one team.
+      </p>
+      <p>
+        One part of the trip that stayed with me was learning about Dr Jose
+        Rizal, the national hero of the Philippines, and the kind of courage and
+        purpose he showed in serving others. His story inspired me to think more
+        deeply about what it means to lead with humility and conviction.
+      </p>
+
+      <h3>School Leadership Roles</h3>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">2024 – Present</span>
+          <p class="timeline-role">Prefect &amp; IT Leader</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2024 – 2025</span>
+          <p class="timeline-role">Primary 1 Buddy</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2021 – Present</span>
+          <p class="timeline-role">
+            Class Monitor, Maths Leader &amp; Prayer Leader
+          </p>
+        </div>
+      </div>
+
+      <p>
+        These responsibilities taught me to be dependable, patient, and ready to
+        guide others by example. They also showed me that leadership is not just
+        about leading in big moments, but about being responsible in everyday
+        situations.
+      </p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Growth -->
+    <section id="growth">
+      <p class="section-label">Growth</p>
+      <h2>Growth and Resilience</h2>
+      <p>
+        Dr Jose Rizal's story during the Manila trip also made me reflect on my
+        own life, especially a difficult period when my mother was unwell and my
+        parents had to spend a lot of time in and out of hospital. At that age,
+        I did not fully understand everything, but it was a time that taught me
+        resilience, gratitude, and the importance of staying hopeful during
+        challenges.
+      </p>
+      <p>
+        Looking back, I feel even more grateful that my mother is now in
+        remission and well. In Manila, I saw more clearly that leadership is not
+        only about being capable, but about using difficult experiences to grow
+        in empathy and to support others. That is why the trip connected so
+        deeply with me. It strengthened my desire to serve others, whether as a
+        prefect in school, through volunteering at Krsna's Free Meals, or simply
+        by helping those around me in everyday situations.
+      </p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Hobbies -->
+    <section id="hobbies">
+      <p class="section-label">Hobbies</p>
+      <h2>What I Enjoy</h2>
+      <p>
+        Outside of service and school leadership, I also enjoy activities that
+        help me learn, express myself, and have fun. Piano is one of the hobbies
+        that has taught me discipline and perseverance. I used to feel nervous
+        about public performance, but I worked hard to overcome this fear by
+        practising regularly and learning to stay calm during recitals. This
+        helped me perform more confidently and achieve my ABRSM Grade 3
+        certificate with Merit, and I continue working towards Grade 4.
+      </p>
+      <p>
+        I also enjoy playing Pokemon Go with my friends. What started as a fun
+        way to spend time together has also become a way for me to connect with
+        younger children during Kampong Glam Youth Network activities, where I
+        teach them how to play and use the game as a way to foster bonding and
+        get them interacting with one another.
+      </p>
+      <p>
+        Beyond that, I enjoy spending time with family, taking part in community
+        activities, and finding ways to keep learning new things. These
+        interests help me stay balanced and remind me that growth happens both
+        in serious responsibilities and in everyday life.
+      </p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Awards -->
+    <section id="awards" style="padding-top: 3rem; padding-bottom: 1rem">
+      <p class="section-label">Recognition</p>
+      <h2>Awards and Certificates</h2>
+      <div class="awards">
+        <div class="award">
+          <span class="award-icon" aria-hidden="true">&#127942;</span>
+          <span class="award-text">Edusave Character Award</span>
+        </div>
+        <div class="award">
+          <span class="award-icon" aria-hidden="true">&#128218;</span>
+          <span class="award-text"
+            >Edusave Certificate of Academic Achievement</span
+          >
+        </div>
+        <div class="award">
+          <span class="award-icon" aria-hidden="true">&#127941;</span>
+          <span class="award-text">CCC-CDC Education Merit Award</span>
+        </div>
+        <div class="award">
+          <span class="award-icon" aria-hidden="true">&#127928;</span>
+          <span class="award-text">ABRSM Grade 3 Piano, Merit</span>
+        </div>
+        <div class="award">
+          <span class="award-icon" aria-hidden="true">&#11088;</span>
+          <span class="award-text">De La Salle Character Award</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Reflections -->
+    <section id="reflections">
+      <p class="section-label">Reflections</p>
+      <h2>Looking Ahead</h2>
+      <p class="reflection-text">
+        The experiences that have shaped me most are the ones that taught me to
+        serve others, work with people, and keep growing even when something
+        feels difficult. Through school leadership, volunteering, and personal
+        challenges, I have learned that character is built through consistent
+        actions, not single moments.
+      </p>
+      <p class="reflection-text">
+        I hope to continue growing as a leader who serves. I look forward to
+        taking on new responsibilities, learning from others, and finding more
+        ways to give back. Whether through community service, peer mentorship,
+        or simply being a dependable teammate, I want to keep using my strengths
+        to make a positive difference.
+      </p>
+      <p class="reflection-text">
+        I believe that the values I have built, resilience, compassion,
+        humility, and a willingness to serve, will help me contribute
+        meaningfully to my community and continue becoming a person of service
+        and integrity.
+      </p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Gallery -->
+    <section id="gallery">
+      <p class="section-label">Gallery</p>
+      <h2>Moments That Matter</h2>
+      <p>
+        This gallery shows some of the experiences that have shaped me through
+        service, leadership, learning, and growth.
+      </p>
+
+      <div class="gallery-category">
+        <h3>Manila Leadership Trip</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="photos/manila-trip/33d13dd0-9a38-47cf-99f1-5d41f2f884c7.JPG"
+              alt="Manila leadership trip"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/manila-trip/5d1e0292-4986-45ea-9e67-f771b331eaca.JPG"
+              alt="Manila leadership trip"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/manila-trip/7f400e5d-3fd3-49f4-bdf6-c7553d196b2f.JPG"
+              alt="Manila leadership trip"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/manila-trip/80e4174c-e4c7-438f-b48d-4628980732bb.JPG"
+              alt="Manila leadership trip"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/manila-trip/a48ea201-b4e2-493e-a7b9-f2ab541bc272.JPG"
+              alt="Manila leadership trip"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/manila-trip/c2f30dd4-e248-48bf-b322-4425a79a9e3b.JPG"
+              alt="Manila leadership trip"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/manila-trip/c79d6e2c-95fc-49ef-8140-c77adb18950f.JPG"
+              alt="Manila leadership trip"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/manila-trip/d03fefc2-b6c9-447b-b088-32632e070cee.JPG"
+              alt="Manila leadership trip"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/manila-trip/d0883d45-fdce-4079-806e-e8af7a507488.JPG"
+              alt="Manila leadership trip"
+              style="object-position: center 70%;"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-category">
+        <h3>Volunteering at Krsna's Free Meals</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="photos/krsna-free-meals/c54b99b5-6f8d-4069-a238-af8c119e86a0.JPG"
+              alt="Volunteering at Krsna's Free Meals"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/krsna-free-meals/IMG_7038.jpeg"
+              alt="Volunteering at Krsna's Free Meals"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/krsna-free-meals/WhatsApp Image 2026-07-02 at 9.03.07 PM (2).jpeg"
+              alt="Volunteering at Krsna's Free Meals"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/krsna-free-meals/WhatsApp Image 2026-07-02 at 9.03.07 PM (3).jpeg"
+              alt="Volunteering at Krsna's Free Meals"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/krsna-free-meals/WhatsApp Image 2026-07-02 at 9.03.07 PM (4).jpeg"
+              alt="Volunteering at Krsna's Free Meals"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/krsna-free-meals/WhatsApp Image 2026-07-02 at 9.03.07 PM (5).jpeg"
+              alt="Volunteering at Krsna's Free Meals"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/krsna-free-meals/WhatsApp Image 2026-07-02 at 9.03.07 PM (6).jpeg"
+              alt="Volunteering at Krsna's Free Meals"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/krsna-free-meals/WhatsApp Image 2026-07-02 at 9.03.07 PM (7).jpeg"
+              alt="Volunteering at Krsna's Free Meals"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-category">
+        <h3>Awards &amp; Certificates</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="photos/awards/File.png" alt="Award certificate" />
+          </div>
+          <div class="gallery-item">
+            <img src="photos/awards/IMG_0584.jpg" alt="Award certificate" />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/awards/WhatsApp Image 2026-07-02 at 9.03.06 PM (1).jpeg"
+              alt="Award certificate"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="photos/awards/WhatsApp Image 2026-07-02 at 9.03.06 PM.jpeg"
+              alt="Award certificate"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-category">
+        <h3>Piano &amp; Recital</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="photos/piano-recital/IMG_7259.jpg" alt="Piano recital" />
+          </div>
+          <div class="gallery-item">
+            <img src="photos/piano-recital/IMG_7260.jpg" alt="Piano recital" />
+          </div>
+          <div class="gallery-item">
+            <img src="photos/piano-recital/IMG_7261.jpg" alt="Piano recital" />
+          </div>
+          <div class="gallery-item">
+            <img src="photos/piano-recital/IMG_7263.jpg" alt="Piano recital" />
+          </div>
+          <div class="gallery-item">
+            <img src="photos/piano-recital/IMG_7264.jpg" alt="Piano recital" />
+          </div>
+          <div class="gallery-item">
+            <img src="photos/piano-recital/IMG_7265.jpg" alt="Piano recital" />
+          </div>
+          <div class="gallery-item">
+            <img src="photos/piano-recital/IMG_7266.jpg" alt="Piano recital" />
+          </div>
+          <div class="gallery-item">
+            <img src="photos/piano-recital/IMG_7267.png" alt="Piano recital" />
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-category">
+        <h3>Prefect &amp; School Leadership</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item gallery-placeholder">
+            <span class="gallery-placeholder-icon">&#128247;</span>
+            <span class="gallery-placeholder-text">Photos coming soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-category">
+        <h3>Kampong Glam Youth Network</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item gallery-placeholder">
+            <span class="gallery-placeholder-icon">&#128247;</span>
+            <span class="gallery-placeholder-text">Photos coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Gerrard Hiren Michael | 2026</p>
+    </footer>
+
+    <script>
+      // Close mobile nav on link click
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          document.querySelector(".nav-links").classList.remove("open");
+        });
+      });
+    </script>
+  </body>
+</html>
